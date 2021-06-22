@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+       rel="stylesheet"/>
+
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <nav class = "light-blue darken-4">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">Ahsenslist, Inc.</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class = "container">
+    <h3 style = "text-align:center">
+      What do you want to search on Ahsenslist
+    </h3>
+    <div class="row">
+
+      <div class="col s4">
+        <div class="center">
+          <i class="large material-icons" style = "color: #01579b">flash_on</i>
+          <p>Fast Craigslist web scrapper</p>
+          <p class="light center">Scrape away right with a beautiful GUI.</p>
+        </div>
+      </div>
+
+      <div class="col s4">
+        <div class="center">
+          <i class="large material-icons orange-text">camera</i>
+          <p>Filter your searches</p>
+          <p class="light center">We built in functionality to filter based on pricing</p>
+        </div>
+      </div>
+
+      <div class="col s4">
+        <div class="center">
+          <i class="large material-icons" style = "color: blue">chrome_reader_mode</i>
+          <p>A much elegant front-end to Craigslist</p>
+          <p class="light center">Scrape away right with a beautiful GUI.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <form action="{% url 'myapp:new_search' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="search" placeholder="Search"/>
+      <button class="waves-effect waves-light btn blue" action="submit" onclick="activate_preloader()">
+        <i class="material-icons right">send</i>
+          SEARCH
+      </button>
+    </form>
+
+    <div id = "search_preloader" style = "display: none">
+
+      <div class="progress">
+          <div class="indeterminate"></div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+    function activate_preloader(){
+      loader = document.getElementById('search_preloader');
+      loader.style.display = 'block';
+    }
+    </script>
+
+{% block content %}
+
+{% endblock %}
+  </div>
+
+
+</body>
+</html>
