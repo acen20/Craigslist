@@ -35,18 +35,14 @@ def extract_img_links(a_tag):
         url = url + link + '_300x300.jpg'
     return url
 
-def SearchView(request):
-    search = request.POST.get("search")
+def scrapper(search):
     scrap_url = 'https://chicago.craigslist.org/search/?query={}'
     final_url = scrap_url.format(quote_plus(search))
     response = requests.get(final_url)
-    models.Search.objects.create(search_text = search)
     data = response.text
     soup = BeautifulSoup(data, features = "lxml")
     posts = soup.find_all('li', class_ = "result-row")
-
     ads = []
-
     for post in posts:
         ad = Ad()
         ad.title = post.div.h3.text.strip()
@@ -58,6 +54,12 @@ def SearchView(request):
         else:
             ad.price = ''
         ads.append(ad)
+    return ads
+
+def SearchView(request):
+    search = request.POST.get("search")
+    models.Search.objects.create(search_text = search)
+    ads = scrapper(search)
 
     context = {
         'title' : ' | '.join([title, search]),
