@@ -32,6 +32,8 @@ def SearchView(request):
     data = response.text
     soup = BeautifulSoup(data, features = "lxml")
     posts = soup.find_all('li', class_ = "result-row")
+    imgs = soup.find_all('img')
+    print(response.url)
     titles = []
     links = []
     prices = []
@@ -41,9 +43,6 @@ def SearchView(request):
         links.append(post.a["href"])
         price = post.find('span', class_ = "result-price")
         prices.append(price)
-        print (post)
-
-
     context = {
         'title' : ' | '.join([title, search]),
         'search': search
