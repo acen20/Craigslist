@@ -23,6 +23,18 @@ class BaseView(generic.ListView):
         }
         return pageinfo
 
+
+class Ad():
+    pass
+
+def extract_img_links(a_tag):
+    url = "https://images.craigslist.org/"
+    if a_tag:
+        link = a_tag["data-ids"].split(':')[1]
+        link = link.split(',')[0]
+        url = url + link + '_300x300.jpg'
+    return url
+
 def SearchView(request):
     search = request.POST.get("search")
     scrap_url = 'https://chicago.craigslist.org/search/?query={}'
@@ -32,19 +44,24 @@ def SearchView(request):
     data = response.text
     soup = BeautifulSoup(data, features = "lxml")
     posts = soup.find_all('li', class_ = "result-row")
-    imgs = soup.find_all('img')
-    print(response.url)
-    titles = []
-    links = []
-    prices = []
-    images = []
+
+    ads = []
+
     for post in posts:
-        titles.append(post.div.h3.text.strip())
-        links.append(post.a["href"])
+        ad = Ad()
+        ad.title = post.div.h3.text.strip()
+        ad.link = post.a["href"]
         price = post.find('span', class_ = "result-price")
-        prices.append(price)
+        ad.img_link = extract_img_links(post.find('a', class_ = "result-image gallery"))
+        if price:
+            ad.price = price.text
+        else:
+            ad.price = ''
+        ads.append(ad)
+
     context = {
         'title' : ' | '.join([title, search]),
-        'search': search
+        'search': search,
+        'ads': ads
         }
     return render(request, 'myapp/new_search.html', context)

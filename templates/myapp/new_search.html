@@ -6,53 +6,20 @@
 
 
   <div class="row">
-    <div class="col s4">
-      <div class="card">
-        <div class="card-image">
-          <img src="https://www.forbes.com/wheels/wp-content/uploads/2021/01/2020_Chevrolet_Silverado_Midnight_Featured.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="col s4">
+    {%for ad in ads%}
+    <div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image">
-          <img src="https://www.oxfordsaudia.com/wp-content/uploads/2018/07/banner-airplane-628x439.jpg">
-          <span class="card-title">Card Title</span>
+          <img src="{{ad.img_link}}" alt="no image for this ad">
+          <span class="card-title" style="width:100%">{{ad.price}}</span>
         </div>
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+          <a target="_blank" href="{{ad.link}}"><p>{{ad.title}}</p></a>
         </div>
       </div>
     </div>
-
-    <div class="col s4">
-      <div class="card">
-        <div class="card-image">
-          <img src="https://storage.googleapis.com/static-content-hc/sites/default/files/cataloina_porto_doble_balcon2_2.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
+    {%endfor%}
 
   </div>
 
