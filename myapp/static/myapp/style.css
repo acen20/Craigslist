@@ -10,9 +10,10 @@
 
 img{
   height: inherit;
-  object-fit: cover;
+  object-fit:contain;
 }
 
 .card-title{
-  background-color: rgba(5, 255, 232, 0.5);
+  background-color: rgba(5, 255, 232);
+  display: none;
 }
