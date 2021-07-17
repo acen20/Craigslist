@@ -69,14 +69,23 @@ html {
 body{
   height: 100vh;
   margin:0;
+  position: relative;
 }
 
 footer{
   bottom:0;
+  position: absolute;
+  width: 100%;
 }
 
 #search{
   margin-bottom: 1%;
+}
+
+#footer-copyright{
+  bottom:0;
+  position:absolute;
+  width: 100%;
 }
 
 .card-footer{
