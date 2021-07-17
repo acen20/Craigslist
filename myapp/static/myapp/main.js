@@ -1,6 +1,9 @@
 function activate_preloader(){
   loader = document.getElementById('search_preloader');
   loader.style.display = 'block';
+  txt = document.getElementById('search_key').value;
+  phrase = "Searching '" + txt + "' on craigslist.com";
+  document.getElementById('empty').innerHTML = phrase;
 }
 
 window.onscroll = function() {scrollFunction()};

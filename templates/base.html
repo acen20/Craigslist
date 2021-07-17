@@ -61,7 +61,7 @@
 
     <form action="{% url 'myapp:new_search' %}" method="post">
       {% csrf_token %}
-      <input type="text" name="search" placeholder="Search"/>
+      <input id="search_key" type="text" name="search" placeholder="Search"/>
       <button class="waves-effect waves-light btn black" action="submit" onclick="activate_preloader()">
         <i class="material-icons right">send</i>
           SEARCH
