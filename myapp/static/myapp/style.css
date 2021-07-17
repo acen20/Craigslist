@@ -78,11 +78,22 @@ body{
 footer{
   margin-top:auto;
   height: 100vh;
+  position: relative;
+}
+
+#footer-copyright{
+  bottom:0;
+  position: absolute;
+  width: 100%;
 }
 
 .card-footer{
   bottom:0;
   position: absolute;
+}
+
+#search{
+  margin-bottom: 1%;
 }
 
 .card{
