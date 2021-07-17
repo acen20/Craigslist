@@ -2,26 +2,31 @@
 
 {% block content %}
 
-<h2 class = "center">{{search | title}}</h2>
+<h2 id="items-list" class = "center">{{search | title}}</h2>
 
 
-  <div class="row">
+  <div class="row items-view">
 
     {%for ad in ads%}
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img src="{{ad.img_link}}" alt="no image for this ad">
-          <span class="card-title" style="width:100%">{{ad.price}}</span>
-        </div>
-        <div class="card-content">
-          <a target="_blank" href="{{ad.link}}"><p>{{ad.title}}</p></a>
-        </div>
+    <div class="card col s12 m4 l3">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="images/office.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+        <p><a href="#">This is a link</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
       </div>
     </div>
     {%endfor%}
 
   </div>
 
+<script type="text/javascript">
+  location.href = "#items-list";
+</script>
 
 {% endblock content %}

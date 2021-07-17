@@ -9,7 +9,7 @@ from requests.compat import quote_plus
 from . import models
 
 # Create your views here.
-title = "Ahsenslist, Inc."
+title = "Craigslist, Inc."
 
 class BaseView(generic.ListView):
     template_name = 'base.html'

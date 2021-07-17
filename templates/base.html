@@ -4,6 +4,7 @@
 <html>
 <head lang="en">
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
    <!-- Compiled and minified JavaScript -->
@@ -12,13 +13,16 @@
        rel="stylesheet"/>
    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
 
-
-  <title>{{title}}</title>
+  <title>{{pageinfo.title}}</title>
 </head>
 
 <body>
 
-  <nav class = "light-blue darken-4">
+  <button style="display:none" class="top-btn btn-floating black" onclick="topFunction()">
+    <i class="material-icons">north</i>
+  </button>
+
+  <nav class = "grey darken-4 hide-on-med-and-down">
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo">Craigslist, Inc.</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -27,14 +31,11 @@
     </div>
   </nav>
   <div class = "container">
-    <h3 style = "text-align:center">
-      What do you want to search on Craigslist
-    </h3>
-    <div class="row">
+    <div class="row" style="margin-top: 2%">
 
       <div class="col s4">
         <div class="center">
-          <i class="large material-icons" style = "color: #01579b">flash_on</i>
+          <i class="medium material-icons" style = "color: #01579b">flash_on</i>
           <p>Fast Craigslist web scrapper</p>
           <p class="light center">Scrape away right with a beautiful GUI.</p>
         </div>
@@ -42,7 +43,7 @@
 
       <div class="col s4">
         <div class="center">
-          <i class="large material-icons orange-text">camera</i>
+          <i class="medium material-icons orange-text">camera</i>
           <p>Filter your searches</p>
           <p class="light center">We built in functionality to filter based on pricing</p>
         </div>
@@ -50,18 +51,21 @@
 
       <div class="col s4">
         <div class="center">
-          <i class="large material-icons" style = "color: blue">chrome_reader_mode</i>
+          <i class="medium material-icons" style = "color: blue">chrome_reader_mode</i>
           <p>A much elegant front-end to Craigslist</p>
           <p class="light center">Scrape away right with a beautiful GUI.</p>
         </div>
       </div>
 
     </div>
+    <h4 class="grey-text" style = "text-align:center">
+      What do you want to search on Craigslist
+    </h4>
 
     <form action="{% url 'myapp:new_search' %}" method="post">
       {% csrf_token %}
       <input type="text" name="search" placeholder="Search"/>
-      <button class="waves-effect waves-light btn blue" action="submit" onclick="activate_preloader()">
+      <button class="waves-effect waves-light btn black" action="submit" onclick="activate_preloader()">
         <i class="material-icons right">send</i>
           SEARCH
       </button>
@@ -75,18 +79,40 @@
 
     </div>
 
-    <script type="text/javascript">
-    function activate_preloader(){
-      loader = document.getElementById('search_preloader');
-      loader.style.display = 'block';
-    }
-    </script>
-
 {% block content %}
 
 {% endblock %}
+
   </div>
 
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Craigslist Scrapper</h5>
+          <p class="grey-text text-lighten-4">We are scraping Ads for you in real-time from one of the largest Advertising companies in US</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+        <!--  <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+
+          </ul> -->
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center">
+      © 2021 Craigslist, Inc. by Ahsen Nazir            </div>
+    </div>
+  </footer>
 
 </body>
+
+
+
+
 </html>
+<script type="text/javascript" src="{% static 'myapp/main.js' %}">
+
+</script>
