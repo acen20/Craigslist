@@ -72,9 +72,11 @@ body{
 }
 
 footer{
-  width: 100%;
   bottom:0;
-  height: 100%;
+}
+
+#search{
+  margin-bottom: 1%;
 }
 
 .card-footer{

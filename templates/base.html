@@ -31,11 +31,11 @@
     </div>
   </nav>
   <div class = "container">
-    <div class="row landing-banner hide-on-med-and-down white-text blue darken-4">
+    <div class="row landing-banner hide-on-med-and-down grey-text">
 
       <div class="col s4">
         <div class="center">
-          <i class="medium material-icons white-text">flash_on</i>
+          <i class="medium material-icons blue-text">flash_on</i>
           <p>Fast Craigslist web scrapper</p>
           <p class="light center">Scrape away right with a beautiful GUI.</p>
         </div>
@@ -43,7 +43,7 @@
 
       <div class="col s4">
         <div class="center">
-          <i class="medium material-icons white-text">camera</i>
+          <i class="medium material-icons blue-text">camera</i>
           <p>Filter your searches</p>
           <p class="light center">We built in functionality to filter based on pricing</p>
         </div>
@@ -51,15 +51,17 @@
 
       <div class="col s4">
         <div class="center">
-          <i class="medium material-icons white-text">chrome_reader_mode</i>
+          <i class="medium material-icons blue-text">chrome_reader_mode</i>
           <p>A much elegant front-end to Craigslist</p>
           <p class="light center">Scrape away right with a beautiful GUI.</p>
         </div>
       </div>
 
     </div>
-
-    <form action="{% url 'myapp:new_search' %}" method="post">
+    <h4 id="empty" class="grey-text lighten-2 center-align">
+      What do you want to search on Craigslist?
+    </h4>
+    <form id = "search" action="{% url 'myapp:new_search' %}" method="post">
       {% csrf_token %}
       <input id="search_key" type="text" name="search" placeholder="Search"/>
       <button class="waves-effect waves-light btn black" action="submit" onclick="activate_preloader()">
@@ -67,13 +69,10 @@
           SEARCH
       </button>
     </form>
-    <h4 id="empty" class="grey-text lighten-2 center-align">
-      What do you want to search on Craigslist?
-    </h4>
     <div id = "search_preloader" style = "display: none">
 
-      <div class="progress">
-          <div class="indeterminate"></div>
+      <div class="progress green lighten-4">
+          <div class="indeterminate green"></div>
       </div>
 
     </div>
