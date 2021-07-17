@@ -66,23 +66,19 @@ html {
   font-variant: small-caps;
 }
 
-body{ height:100vh; margin:0; }
-
-footer{ min-height:inherit;}
-
 body{
   display:flex;
   flex-direction:column;
+  margin: 0;
+  height: 100vh;
 }
 
 footer{
   margin-top:2%;
-  height: 100vh;
   position: relative;
 }
 
 #footer-copyright{
-  height: 100%;
 }
 
 .card-footer{
