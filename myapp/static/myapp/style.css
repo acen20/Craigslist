@@ -66,26 +66,18 @@ html {
   font-variant: small-caps;
 }
 
+body{ height:100vh; margin:0; }
+
+header{ min-height:50px; background:lightcyan; }
+footer{ min-height:50px; background:PapayaWhip; }
+
 body{
-  height: 100vh;
-  margin:0;
-  position: relative;
+  display:flex;
+  flex-direction:column;
 }
 
 footer{
-  bottom:0;
-  position: absolute;
-  width: 100%;
-}
-
-#search{
-  margin-bottom: 1%;
-}
-
-#footer-copyright{
-  bottom:0;
-  position:absolute;
-  width: 100%;
+  margin-top:auto;
 }
 
 .card-footer{
