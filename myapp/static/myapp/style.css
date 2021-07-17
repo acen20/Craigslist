@@ -68,8 +68,7 @@ html {
 
 body{ height:100vh; margin:0; }
 
-header{ min-height:50px; background:lightcyan; }
-footer{ min-height:50px; background:PapayaWhip; }
+footer{ min-height:inherit;}
 
 body{
   display:flex;
@@ -78,6 +77,7 @@ body{
 
 footer{
   margin-top:auto;
+  height: 100vh;
 }
 
 .card-footer{
