@@ -13,15 +13,10 @@ title = "Craigslist, Inc."
 
 class BaseView(generic.ListView):
     template_name = 'base.html'
-    context_object_name = 'pageinfo'
+    context_object_name = 'title'
 
     def get_queryset(self):
-        content = f"Your are at {title}"
-        pageinfo = {
-        'title' : title,
-        'content': content
-        }
-        return pageinfo
+        return title;
 
 
 class Ad():
@@ -33,6 +28,8 @@ def extract_img_links(a_tag):
         link = a_tag["data-ids"].split(':')[1]
         link = link.split(',')[0]
         url = url + link + '_300x300.jpg'
+    else:
+        url = "/static/myapp/images/alt.jpg"
     return url
 
 def scrapper(search):
@@ -57,13 +54,15 @@ def scrapper(search):
     return ads
 
 def SearchView(request):
-    search = request.POST.get("search")
-    models.Search.objects.create(search_text = search)
-    ads = scrapper(search)
+    if request.POST:
+        search = request.POST.get("search")
+        models.Search.objects.create(search_text = search)
+        ads = scrapper(search)
 
-    context = {
-        'title' : ' | '.join([title, search]),
-        'search': search,
-        'ads': ads
-        }
-    return render(request, 'myapp/new_search.html', context)
+        context = {
+            'title' : ' | '.join([title, search]),
+            'search': search,
+            'ads': ads
+            }
+        return render(request, 'myapp/new_search.html', context)
+    return render(request, 'base.html')

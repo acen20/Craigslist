@@ -8,20 +8,34 @@
   height: 200px;
 }
 
+.activator{
+  font-size: 12px;
+}
+
 img{
   height: inherit;
   object-fit:contain;
 }
 
 .card-title{
+  font-size: small !important;
+  font-weight: bold;
+}
+
+.card-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+/* to specify the number of lines you want the text to run through... */
+  -webkit-line-clamp: 2;
+/* hide the overflowing text, i.e, texts that did not fit in to the box */
+  overflow: hidden;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.items-view{
-}
 
 @media only screen and (min-width: 600px)  {
   .top-btn{
@@ -58,4 +72,13 @@ body{
 
 footer{
   margin-top:auto;
+}
+
+.card-footer{
+  bottom:0;
+  position: absolute;
+}
+
+.card{
+  position: relative;
 }
