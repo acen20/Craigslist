@@ -82,9 +82,7 @@ footer{
 }
 
 #footer-copyright{
-  bottom:0;
-  position: absolute;
-  width: 100%;
+  height: 100%;
 }
 
 .card-footer{
