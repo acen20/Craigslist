@@ -76,7 +76,7 @@ body{
 }
 
 footer{
-  margin-top:auto;
+  margin-top:2%;
   height: 100vh;
   position: relative;
 }
@@ -92,9 +92,6 @@ footer{
   position: absolute;
 }
 
-#search{
-  margin-bottom: 2%;
-}
 
 .card{
   position: relative;
