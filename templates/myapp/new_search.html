@@ -8,7 +8,7 @@
   <div class="row items-view">
 
     {%for ad in ads%}
-    <div class="card col s12 m4 l3">
+    <div class="card col s6 m4 l3">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="{{ad.img_link}}">
       </div>
@@ -30,8 +30,12 @@
         </div>
       </div>
       <div class="card-reveal">
-        <p class="card-title green-text bold text-darken-4">{{ad.price}}<i class="material-icons right">close</i></p>
+        <p class="card-title green-text text-darken-4">{{ad.price}}<i class="material-icons right">close</i></p>
         <p>{{ad.title}}</p>
+        <p class="center-align"><a class="btn-floating blue" href="{{ad.link}}" target="_blank">
+          <i class="material-icons">arrow_forward</i>
+        </a>
+        </p>
       </div>
     </div>
     {%endfor%}
