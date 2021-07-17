@@ -66,18 +66,14 @@ html {
   font-variant: small-caps;
 }
 
-body{ height:100vh; margin:0; }
-
-header{ min-height:50px; background:lightcyan; }
-footer{ min-height:50px; background:PapayaWhip; }
-
 body{
-  display:flex;
-  flex-direction:column;
+  height: 100vh;
+  margin:0;
 }
 
 footer{
-  margin-top:auto;
+  width: 100%;
+  bottom:0;
 }
 
 .card-footer{
@@ -87,4 +83,9 @@ footer{
 
 .card{
   position: relative;
+}
+
+.landing-banner{
+  padding: 2%;
+  margin-top:1%;
 }
